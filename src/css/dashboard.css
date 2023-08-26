@@ -1,0 +1,116 @@
+.table-list-view {
+    position: relative;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead {
+        tr {
+            background-color: #fff;
+
+            td {
+                font-size: 18px;
+                font-weight: 600;
+                padding: 12px 12px;
+                cursor: pointer;
+                padding-left: 20px;
+
+                &:first-child {
+                    padding-left: 35px;
+                }
+
+                &:last-child {
+                    padding-right: 50px;
+
+                    .header-title-wrapper {
+                        justify-content: flex-end;
+                    }
+                }
+
+                .header-title-wrapper {
+                    @extend %row;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            background-color: #fff;
+
+            td {
+                font-size: 16px;
+                padding: 8px 12px;
+
+                &:first-child {
+                    padding-left: 35px;
+                }
+
+                &:last-child {
+                    padding-right: 50px;
+                }
+            }
+
+            &.active {
+                background-color: #effdff;
+
+                td {
+                    font-weight: bold;
+                }
+            }
+
+            &.new-patient {
+                td {
+                    font-weight: bold;
+                }
+            }
+
+            &.declined {
+                td {
+                    color: var(--error);
+                }
+            }
+
+            &.invite-pending {
+                td {
+                    color: var(--secondary-text);
+                }
+
+                &.active td {
+                    color: var(--primary-text);
+                    font-weight: 700;
+                }
+            }
+
+            .data-milestone {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 44px;
+                padding: 8px;
+                border-radius: 4px;
+
+                &--overdue {
+                    background: #ffe0e2;
+                    color: var(--error);
+                    font-weight: bold;
+                }
+            }
+
+            .data-error {
+                display: flex;
+                align-items: center;
+                padding: 8px 10px;
+                background: #ffe0e2;
+                color: var(--error);
+                font-weight: bold;
+                border-radius: 4px;
+
+                &--type2 {
+                    background: #fffbeb;
+                    color: initial;
+                }
+            }
+        }
+    }
+}
