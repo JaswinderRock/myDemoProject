@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import '../css/dashboard.css';
 import { connect } from "react-redux";
 import AddUser from './AddUser';
+import { Link } from 'react-router-dom';
 
 interface DashboardProps {
     loggedInUsers: string[];
+    id: number
     userList: Array<{
         firstName: string;
         lastName: string;
@@ -15,56 +17,14 @@ interface DashboardProps {
     }>
 }
 interface DashboardState {
-    userData: Array<Object>
     showModel: boolean
 }
 
 class Dashboard extends Component<DashboardProps, DashboardState> {
     state = {
         showModel: false,
-        userData: [
-            {
-                firstName: 'John',
-                lastName: 'Doe',
-                email: 'john.doe@example.com',
-                companyName: 'Acme Inc.',
-                occupation: 'Software Engineer',
-                id: 1
-            },
-            {
-                firstName: 'Jane',
-                lastName: 'Smith',
-                email: 'jane.smith@example.com',
-                companyName: 'TechCorp',
-                occupation: 'Data Scientist',
-                id: 2
-            },
-            {
-                firstName: 'Bob',
-                lastName: 'Johnson',
-                email: 'bob.johnson@example.com',
-                companyName: 'GlobalTech',
-                occupation: 'Product Manager',
-                id: 3
-            },
-            {
-                firstName: 'Miss',
-                lastName: 'Jazz',
-                email: 'Jazz@gmail.com',
-                companyName: 'Reckonsys Tech Labs',
-                occupation: 'Software Engineer',
-                id: 4
-            },
-            {
-                firstName: 'Miss',
-                lastName: 'Surekha',
-                email: 'surekha@gmail.com',
-                companyName: 'Reckonsys Tech Labs',
-                occupation: 'Software Engineer',
-                id: 5
-            }
-        ]
     };
+
     render() {
         return (
             <div style={{ background: '#f1f1f1' }}>
@@ -93,7 +53,7 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
                             {this.props.userList.map((user) => (
                                 <>
                                     <tr style={{ backgroundColor: 'white', cursor: 'pointer', height: '40px' }}>
-                                        <td style={{ paddingLeft: '20px' }}>{user.id}</td>
+                                        <Link to="/userDetails"><td style={{ paddingLeft: '20px', fontSize: '16px' }}>{user.id}</td></Link>
                                         <td>{user.firstName}</td>
                                         <td>{user.lastName}</td>
                                         <td>{user.email}</td>

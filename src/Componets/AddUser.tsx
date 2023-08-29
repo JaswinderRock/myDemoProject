@@ -76,7 +76,7 @@ class AddUser extends Component<AddUserProps, AddUserState> {
                                         </label>
                                         <input
                                             style={{ width: '90%', padding: '10px', border: '1px solid #dedede', borderRadius: '4px', fontSize: '16px' }}
-                                            placeholder="enter firstName"
+                                            placeholder="Enter firstName"
                                             type="text"
                                             id="firstName"
                                             name="firstName"
@@ -91,7 +91,7 @@ class AddUser extends Component<AddUserProps, AddUserState> {
                                         </label>
                                         <input
                                             style={{ width: '90%', padding: '10px', border: '1px solid #dedede', borderRadius: '4px', fontSize: '16px' }}
-                                            placeholder='enter lastName'
+                                            placeholder='Enter lastName'
                                             type="text"
                                             id="lastName"
                                             name="lastName"
@@ -106,7 +106,7 @@ class AddUser extends Component<AddUserProps, AddUserState> {
                                         </label>
                                         <input
                                             style={{ width: '90%', padding: '10px', border: '1px solid #dedede', borderRadius: '4px', fontSize: '16px' }}
-                                            placeholder='enter your email'
+                                            placeholder='Enter your email'
                                             type="email"
                                             id="email"
                                             name="email"
@@ -121,7 +121,7 @@ class AddUser extends Component<AddUserProps, AddUserState> {
                                         </label>
                                         <input
                                             style={{ width: '90%', padding: '10px', border: '1px solid #dedede', borderRadius: '4px', fontSize: '16px' }}
-                                            placeholder='enter your company name'
+                                            placeholder='Enter your company name'
                                             type="text"
                                             id="companyName"
                                             name="companyName"
@@ -136,7 +136,7 @@ class AddUser extends Component<AddUserProps, AddUserState> {
                                         </label>
                                         <input
                                             style={{ width: '90%', padding: '10px', border: '1px solid #dedede', borderRadius: '4px', fontSize: '16px' }}
-                                            placeholder='enter your occupation'
+                                            placeholder='Enter your occupation'
                                             type="text"
                                             id="occupation"
                                             name="occupation"

@@ -20,7 +20,47 @@ const initialState: State = {
         companyName: 'TechCorp',
         occupation: 'Data Scientist',
         id: 2
-    }]
+        },
+        {
+            firstName: 'Bob',
+            lastName: 'Johnson',
+            email: 'bob.johnson@example.com',
+            companyName: 'GlobalTech',
+            occupation: 'Product Manager',
+            id: 3
+        },
+        {
+            firstName: 'Miss',
+            lastName: 'Jazz',
+            email: 'Jazz@gmail.com',
+            companyName: 'Reckonsys Tech Labs',
+            occupation: 'Software Engineer',
+            id: 4
+        },
+        {
+            firstName: 'Mera',
+            lastName: 'Khan',
+            email: 'khan@gmail.com',
+            companyName: 'Clir Renewables',
+            occupation: 'Software Manager',
+            id: 5
+        },
+        {
+            firstName: 'khushal',
+            lastName: 'kumar',
+            email: 'kumar@gmail.com',
+            companyName: 'Kaiko',
+            occupation: 'Project Lead',
+            id: 6
+        },
+        {
+            firstName: 'Miss',
+            lastName: 'Surekha',
+            email: 'surekha@gmail.com',
+            companyName: 'Reckonsys Tech Labs',
+            occupation: 'Software Engineer',
+            id: 7
+        }]
 };
 
 const reducer = (state = initialState, action: any) => {
