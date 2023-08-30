@@ -78,6 +78,7 @@ class AddUser extends Component<AddUserProps, AddUserState> {
                                             style={{ width: '90%', padding: '10px', border: '1px solid #dedede', borderRadius: '4px', fontSize: '16px' }}
                                             placeholder="Enter firstName"
                                             type="text"
+                                            data-test="firstName"
                                             id="firstName"
                                             name="firstName"
                                             value={firstName}
