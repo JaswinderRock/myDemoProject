@@ -69,7 +69,6 @@ const initialState: State = {
 };
 
 const reducer = (state = initialState, action: any) => {
-    console.log("action", action.payload)
     switch (action.type) {
         case ActionType.ADD_USER:
             return {

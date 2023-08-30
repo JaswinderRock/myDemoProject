@@ -13,18 +13,17 @@ interface AppProps {
 }
 class App extends Component<AppProps> {
     handleLogout = () => {
-        this.setState({ isLoggedIn: false });
+        this.setState(!this.props.login);
     };
     render() {
         const loginCheck = this.props.login
-        console.log("loginCheck", loginCheck)
         return (
             <>
                 <div className="header">
                     <a href="#default" className="logo">React with Typescript </a>
                     <div className="header-right">
                         <>
-                            {this.props.login ?
+                            {loginCheck ?
                                 <>
                                     <Link className="active" style={{ fontSize: '24px' }} to="dashboard">DashBoard</Link>
                                     <Link style={{ fontSize: '24px' }} to="profile">Profile</Link>

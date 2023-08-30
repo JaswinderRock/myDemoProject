@@ -35,7 +35,7 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
                         <h2>UserList:</h2>
                     </div>
                     <div style={{ alignItems: 'center', paddingRight: '30px' }}>
-                        <button style={{ borderRadius: '6px' }} onClick={() => this.setState({ showModel: !this.state.showModel })}>Add User</button>
+                        <button data-test="add-user-button" style={{ borderRadius: '6px' }} onClick={() => this.setState({ showModel: !this.state.showModel })}>Add User</button>
                     </div>
                 </div>
                 <div style={{ marginLeft: '32px', marginRight: '32px', }}>
@@ -53,20 +53,22 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
                         </thead>
                         <tbody style={{ width: '100%' }}>
                             {this.props.userList.map((item) => {
-                                const { firstName, lastName, email, occupation, companyName, id } = item
+                                const { firstName, lastName, email, occupation, companyName, id } = item;
                                 return (
-                                    < >
+                                    <React.Fragment key={id}>
                                         <tr style={{ backgroundColor: 'white', cursor: 'pointer', height: '40px' }} onClick={() => this.props.setUserId(id.toString())}>
-                                            <Link to={`/userDetails`}><td style={{ paddingLeft: '20px', fontSize: '16px' }}>{id}</td></Link>
+                                            <td style={{ paddingLeft: '20px', fontSize: '16px' }}>
+                                                <Link to={`/userDetails`}>{id}</Link>
+                                            </td>
                                             <td>{firstName}</td>
                                             <td>{lastName}</td>
                                             <td>{email}</td>
                                             <td>{occupation}</td>
                                             <td>{companyName}</td>
-                                    </tr>
-                                    <tr style={{ backgroundColor: 'transparent', height: '4px' }}></tr>
-                                    </>
-                                )
+                                        </tr>
+                                        <tr style={{ backgroundColor: 'transparent', height: '4px' }}></tr>
+                                    </React.Fragment>
+                                );
                             })}
                         </tbody>
                     </table>

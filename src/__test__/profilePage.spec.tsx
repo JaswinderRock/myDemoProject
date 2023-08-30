@@ -1,11 +1,10 @@
 import React from 'react';
-import { ShallowWrapper, mount, shallow } from "enzyme";
+import { ShallowWrapper, shallow } from "enzyme";
 import ProfilePage from '../Componets/ProfilePage';
 import { Link } from 'react-router-dom';
 
 describe("Render Profile Page", () => {
     let wrapper: ShallowWrapper;
-
     beforeAll(() => {
         wrapper = shallow(<ProfilePage />);
     });
@@ -31,4 +30,5 @@ describe("Render Profile Page", () => {
         expect(link.prop('to')).toEqual('/dashboard');
         expect(link.text()).toEqual('Close');
     });
+
 })
