@@ -3,6 +3,7 @@ import '../css/dashboard.css';
 import { connect } from "react-redux";
 import AddUser from './AddUser';
 import { Link } from 'react-router-dom';
+import { setUserId } from '../Redux/Actions/action';
 
 interface DashboardProps {
     loggedInUsers: string[];
@@ -15,6 +16,7 @@ interface DashboardProps {
         occupation: string;
         id: number
     }>
+    setUserId: (id: string) => void
 }
 interface DashboardState {
     showModel: boolean
@@ -50,19 +52,22 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
                             <tr style={{ backgroundColor: 'transparent', height: '4px' }}></tr>
                         </thead>
                         <tbody style={{ width: '100%' }}>
-                            {this.props.userList.map((user) => (
-                                <>
-                                    <tr style={{ backgroundColor: 'white', cursor: 'pointer', height: '40px' }}>
-                                        <Link to="/userDetails"><td style={{ paddingLeft: '20px', fontSize: '16px' }}>{user.id}</td></Link>
-                                        <td>{user.firstName}</td>
-                                        <td>{user.lastName}</td>
-                                        <td>{user.email}</td>
-                                        <td>{user.occupation}</td>
-                                        <td>{user.companyName}</td>
+                            {this.props.userList.map((item) => {
+                                const { firstName, lastName, email, occupation, companyName, id } = item
+                                return (
+                                    < >
+                                        <tr style={{ backgroundColor: 'white', cursor: 'pointer', height: '40px' }} onClick={() => this.props.setUserId(id.toString())}>
+                                            <Link to={`/userDetails`}><td style={{ paddingLeft: '20px', fontSize: '16px' }}>{id}</td></Link>
+                                            <td>{firstName}</td>
+                                            <td>{lastName}</td>
+                                            <td>{email}</td>
+                                            <td>{occupation}</td>
+                                            <td>{companyName}</td>
                                     </tr>
                                     <tr style={{ backgroundColor: 'transparent', height: '4px' }}></tr>
-                                </>
-                            ))}
+                                    </>
+                                )
+                            })}
                         </tbody>
                     </table>
                 </div>
@@ -77,4 +82,4 @@ function mapStateToProps(state: any) {
     return { userList: state.userList };
 }
 
-export default connect(mapStateToProps, {})(Dashboard);
+export default connect(mapStateToProps, { setUserId })(Dashboard);

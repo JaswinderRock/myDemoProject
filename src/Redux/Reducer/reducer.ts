@@ -1,7 +1,10 @@
-import { ActionType } from "../Actions/action";
+import { BlobOptions } from "buffer";
+import { ActionType, isLogin } from "../Actions/action";
 
 export interface State {
     userList: Array<Object>
+    userid: string,
+    login: Boolean
 }
 
 const initialState: State = {
@@ -60,7 +63,9 @@ const initialState: State = {
             companyName: 'Reckonsys Tech Labs',
             occupation: 'Software Engineer',
             id: 7
-        }]
+        }],
+    userid: "",
+    login: false
 };
 
 const reducer = (state = initialState, action: any) => {
@@ -70,6 +75,16 @@ const reducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 userList: [...state.userList, action.payload],
+            };
+        case ActionType.USER_ID:
+            return {
+                ...state,
+                userid: action.payload,
+            };
+        case ActionType.IS_LOGIN:
+            return {
+                ...state,
+                login: !state.login,
             };
         default:
             return state;

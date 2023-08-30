@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { isLogin } from '../Redux/Actions/action';
 
 interface LoginPageState {
     email: string;
     password: string;
 }
+interface LoginProps {
+    isLogin: () => void,
+    login: boolean
+}
 
-class LoginPage extends Component<{}, LoginPageState> {
-    constructor(props: {}) {
-        super(props);
-        this.state = {
+class LoginPage extends Component<LoginProps, LoginPageState> {
+    state = {
             email: '',
-            password: '',
-        };
-    }
+        password: ''
+    };
 
     handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,12 +24,12 @@ class LoginPage extends Component<{}, LoginPageState> {
         if (validationStatus === false) {
             alert('Plase fill all the required fields')
         }
+        this.props.isLogin();
         console.log(this.state);
     };
 
     render() {
         const { email, password } = this.state;
-
         return (
             <div>
 
@@ -70,5 +73,7 @@ class LoginPage extends Component<{}, LoginPageState> {
         return status;
     }
 }
-
-export default LoginPage;
+function mapStateToProps(state: any) {
+    return { login: state.login };
+}
+export default connect(mapStateToProps, { isLogin })(LoginPage);
